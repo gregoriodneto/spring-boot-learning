@@ -18,8 +18,8 @@ Este repositório contém exemplos práticos e notas de estudo para aprender o S
 - ✅ DTOs and validations with `@Valid`, `@NotNull`
 
 ### 🗃️ JPA / Hibernate
-- ☐ Entity mappings: `@Entity`, `@OneToMany`, `@ManyToOne`
-- ☐ Repositories with `JpaRepository`
+- ✅ Entity mappings: `@Entity`, `@OneToMany`, `@ManyToOne`
+- ✅ Repositories with `JpaRepository`
 
 ### ⚠️ Error Handling
 - ☐ Global exception handling with `@ControllerAdvice`, `@ExceptionHandler`
