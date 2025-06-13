@@ -1,11 +1,13 @@
 package com.greg.spring_boot_learning.api_products.service;
 
 import com.greg.spring_boot_learning.api_products.domains.Product;
+import com.greg.spring_boot_learning.api_products.exception.ProductNotFoundException;
 import com.greg.spring_boot_learning.api_products.infra.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /*
 * Especialização de @Component, usada para classes de lógica de negócio.
@@ -26,7 +28,8 @@ public class ProductService {
     }
 
     public Product findProductById(Long id) {
-        return repository.findById(id).orElseThrow();
+        return repository.findById(id)
+                .orElseThrow(() -> new ProductNotFoundException(id));
     }
 
     public void deleteProductById(Long id) {
@@ -34,7 +37,7 @@ public class ProductService {
     }
 
     public Product updateProduct(Long id, Product newData) {
-        Product existingProduct = repository.findById(id).orElseThrow();
+        Product existingProduct = findProductById(id);
         existingProduct.setNome(newData.getNome());
         existingProduct.setPreco(newData.getPreco());
         return repository.save(existingProduct);

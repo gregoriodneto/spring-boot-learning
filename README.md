@@ -22,7 +22,7 @@ Este repositório contém exemplos práticos e notas de estudo para aprender o S
 - ✅ Repositories with `JpaRepository`
 
 ### ⚠️ Error Handling
-- ☐ Global exception handling with `@ControllerAdvice`, `@ExceptionHandler`
+- ✅ Global exception handling with `@ControllerAdvice`, `@ExceptionHandler`
 
 ### 🔐 Security
 - ☐ Basic Spring Security (JWT, simple authentication)

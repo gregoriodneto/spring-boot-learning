@@ -1,11 +1,13 @@
 package com.greg.spring_boot_learning.api_products.service;
 
 import com.greg.spring_boot_learning.api_products.domains.Category;
+import com.greg.spring_boot_learning.api_products.exception.CategoryNotFoundException;
 import com.greg.spring_boot_learning.api_products.infra.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 @RequiredArgsConstructor
@@ -21,6 +23,7 @@ public class CategoryService {
     }
 
     public Category findCategoryById(Long id) {
-        return repository.findById(id).orElseThrow();
+        return repository.findById(id)
+                .orElseThrow(() -> new CategoryNotFoundException(id));
     }
 }
